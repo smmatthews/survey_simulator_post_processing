@@ -1,0 +1,3 @@
+[console_scripts]
+surveySimPP = surveySimPP.__main__:main
+

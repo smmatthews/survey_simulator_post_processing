@@ -17,9 +17,6 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-#!/usr/bin/env python3
-
-
 """
 Calculate probability of detection due to fading
 
@@ -74,7 +71,7 @@ def calcDetectionProbability(mag, limmag, fillFactor=1.0, w=0.1):
 #-----------------------------------------------------------------------------------------------
 
 def PPDetectionProbability(oif_df, survey_df, trailing_losses=False, trailing_loss_name='dmagDetect',
-                           magnitude_name="MaginFil",
+                           magnitude_name="MagnitudeInFilter",
                            limiting_magnitude_name_survey="fiveSigmaDepth",
                            field_id_name="FieldID", field_id_name_survey="FieldID",
                            fillFactor=1.0, w=0.1):
@@ -92,12 +89,6 @@ def PPDetectionProbability(oif_df, survey_df, trailing_losses=False, trailing_lo
         w               ... distribution parameter
         """
 
-        #fielddf = pd.merge(oif_df[[field_id_name]],
-        #                survey_df[[field_id_name_survey, limiting_magnitude_name_survey]],
-        #                left_on=field_id_name,
-        #                right_on=field_id_name_survey,
-        #                how="left"
-        #)
 
         if (trailing_losses==False):
             return calcDetectionProbability(oif_df[magnitude_name],oif_df[limiting_magnitude_name_survey], fillFactor, w)

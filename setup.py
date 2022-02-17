@@ -13,11 +13,8 @@ setuptools.setup(
      packages=setuptools.find_packages(),
 
      entry_points = {
-        'console_scripts': [
-            'surveySimPP = surveySimPP.__main__:main',
-        ],
+        'console_scripts': ['surveySimPP = surveySimPP.surveySimPP.__main__:main'],
     },
-        
         
      author="Meg Schwamb",
      author_email="m.schwamb@qub.ac.uk",
@@ -31,7 +28,6 @@ setuptools.setup(
          "License :: OSI Approved :: MIT License",
          "Operating System :: OS Independent",],
   
-   install_requires=['numpy',
-                      ],
+   install_requires=['numpy', 'pandas', 'scipy', 'astropy'],
 
  )

@@ -25,15 +25,15 @@ def test_PPDetectionProbabilty():
     #_,limiting_magnitude=PPMatchFieldConditions('./data/baseline_10yrs_10klines.db')
     #con=sql.connect('./data/baseline_10yrs_10klines.db')
     #survey=pd.read_sql_query("SELECT observationId, fiveSigmaDepth FROM SummaryAllProps ORDER BY observationId", con)
-    test_in=pd.DataFrame({'FieldID': [0, 0], 'MaginFil': [21.9, 21.9], 'fiveSigmaDepth': [22.0, 22.0]})
+    test_in=pd.DataFrame({'FieldID': [0, 0], 'MagnitudeInFilter': [21.9, 21.9], 'fiveSigmaDepth': [22.0, 22.0]})
 
     survey=pd.DataFrame({'observationId': [0] })
 
-    test_target=pd.DataFrame({'FieldID': [0, 0], 'MaginFil': [21.9, 21.9], 
-                              'detection probability': [0.7310585786300077, 0.7310585786300077]})
+    test_target=pd.DataFrame({'FieldID': [0, 0], 'MagnitudeInFilter': [21.9, 21.9], 
+                              'detection_probability': [0.7310585786300077, 0.7310585786300077]})
 
     test_out=test_in.copy()
-    test_out['detection probability']=PPDetectionProbability(test_in, survey)
+    test_out['detection_probability']=PPDetectionProbability(test_in, survey)
 
-    assert test_out['detection probability'][0]==test_target['detection probability'][0]
+    assert test_out['detection_probability'][0]==test_target['detection_probability'][0]
     return

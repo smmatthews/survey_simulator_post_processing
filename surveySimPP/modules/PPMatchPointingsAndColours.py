@@ -34,26 +34,15 @@ def PPMatchPointingsAndColours(padain,pointfildb):
     usage: padafr=PPMatchPointingsAndColours(padain,pointfildb)
     """
 
-    #possible_colours=pd.Series(['u','g','r','i','z','y'])
-    #possible_colours=['u','g','r','i','z','y']
-
 
     resdf=padain.join(pointfildb.set_index('FieldID'), on='FieldID')
-    
-    #for colour in possible_colours:
-    #     if colour not in resdf:
-    #          resdf[colour]=np.nan
-            
-    #resdf['ColinFil']=resdf.optFilter.isin(resdf.columns) # on track, gives true to correct values
-    
+        
     colour_values=resdf.optFilter.unique()
     colour_values=pd.Series(colour_values).dropna()
         
     resdf=resdf.dropna(subset=['optFilter']).reset_index(drop=True)
-    #resdf['MaginFil']=resdf.lookup(resdf.index,resdf['optFilter']) 
     
-    #df['new_col'] = df.lookup(df.index, df.names)
-    resdf['MaginFil'] = resdf.melt(id_vars='optFilter', value_vars=colour_values, ignore_index=False).query('optFilter == variable').loc[resdf.index, 'value']
+    resdf['MagnitudeInFilter'] = resdf.melt(id_vars='optFilter', value_vars=colour_values, ignore_index=False).query('optFilter == variable').loc[resdf.index, 'value']
         
     # Check if observation dates in joined dataframes match
     
@@ -68,8 +57,6 @@ def PPMatchPointingsAndColours(padain,pointfildb):
            logging.error('ERROR: PPMatchPointingsAndColours: mismatch in pointing database and pointing output id:s.')
            sys.exit('ERROR: PPMatchPointingsAndColours: mismatch in pointing database and pointing output id:s.')
     
-
-    #resdf.melt(id_vars=['FieldID'], value_vars=['optFilter'], var_name='ColinFil')
 
     resdf=resdf.drop(columns='observationId_')
     

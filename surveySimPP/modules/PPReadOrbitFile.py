@@ -21,7 +21,7 @@ def PPReadOrbitFile(orbin, beginLoc, chunkSize, filesep):
    Mandatory input:   string, orbin (name of input orbit file)
                       integer, beginLoc, location in file where reading begins
                       integer, chunkSize, length of chunk to be read in 
-                      string, filesep, separator used in input file, blank or comma
+                      string, filesep, separator used in input file, whitespace or csv 
 
 
    Output:            pandas dataframe
@@ -33,9 +33,9 @@ def PPReadOrbitFile(orbin, beginLoc, chunkSize, filesep):
    
    pplogger = logging.getLogger(__name__)
    
-   if (filesep==" "):
+   if (filesep=="whitespace"):
        padafr=pd.read_csv(orbin, sep='\s+', skiprows=range(1,beginLoc+1), nrows=chunkSize, header=0)
-   elif (filesep==","):
+   elif (filesep=="csv" or filesep=="comma"):
        padafr=pd.read_csv(orbin, delimiter=',', skiprows=range(1,beginLoc+1), nrows=chunkSize, header=0)    
 
    
@@ -43,9 +43,6 @@ def PPReadOrbitFile(orbin, beginLoc, chunkSize, filesep):
       # rename i to incl to avoid confusion with the colour i
    padafr=padafr.rename(columns={"i" : "incl"})
 
-   #if (len(padafr.columns) != 14):
-   #     pplogger.error('ERROR: PPReadOrbitFile: invalid input orbit DES file: not 14 columns.')
-   #     sys.exit('ERROR: PPReadOrbitFile: invalid input orbit DES file: not 14 columns.')
    # Check for nans or nulls
    
    if padafr.isnull().values.any():
@@ -55,7 +52,7 @@ def PPReadOrbitFile(orbin, beginLoc, chunkSize, filesep):
          sys.exit(outstr)
          pplogger.info(outstr)
    
-   padafr=padafr.drop(['H', 'INDEX', 'N_PAR', 'MOID', 'COMPCODE'], axis = 1, errors='ignore')
+   padafr=padafr.drop([ 'INDEX', 'N_PAR', 'MOID', 'COMPCODE'], axis = 1, errors='ignore')
    
     
    return padafr
