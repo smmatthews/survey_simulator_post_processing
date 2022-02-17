@@ -13,7 +13,7 @@ setuptools.setup(
      packages=setuptools.find_packages(),
 
      entry_points = {
-        'console_scripts': ['surveySimPP = surveySimPP.surveySimPP.__main__:main'],
+        'console_scripts': ['surveySimPP = surveySimPP.surveySimPP:main'],
     },
         
      author="Meg Schwamb",
@@ -28,6 +28,6 @@ setuptools.setup(
          "License :: OSI Approved :: MIT License",
          "Operating System :: OS Independent",],
   
-   install_requires=['numpy', 'pandas', 'scipy', 'astropy'],
+   install_requires=['numpy', 'pandas', 'scipy', 'astropy','sbpy @ git+https://github.com/NASA-Planetary-Science/sbpy.git'],
 
  )
