@@ -2,8 +2,7 @@ Using Objects In Field
 ======================
 
 
-The easiest way to get started is by using the Anaconda Python Distribution's 
-conda package manager::
+A basic configuration file::
 
 
    [ASTEROID]

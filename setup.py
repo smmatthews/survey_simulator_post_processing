@@ -6,15 +6,13 @@ with open("README.md", "r") as fh:
 setuptools.setup(
      name='surveySimPP',
      version='0.1.0',
-#     scripts=["surveysimPP/__main__.py",
-        
-#        ] ,
-    
+
      packages=setuptools.find_packages(),
 
      entry_points = {
         'console_scripts': ['surveySimPP = surveySimPP.surveySimPP:main'],
     },
+        
         
      author="Meg Schwamb",
      author_email="m.schwamb@qub.ac.uk",
@@ -28,6 +26,6 @@ setuptools.setup(
          "License :: OSI Approved :: MIT License",
          "Operating System :: OS Independent",],
   
-   install_requires=['numpy', 'pandas', 'scipy', 'astropy','sbpy @ git+https://github.com/NASA-Planetary-Science/sbpy.git'],
+   install_requires=['numpy', 'pandas==1.3.5', 'scipy', 'astropy','sbpy @ git+https://github.com/NASA-Planetary-Science/sbpy.git'],
 
  )

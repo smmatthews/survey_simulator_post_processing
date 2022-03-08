@@ -78,9 +78,8 @@
              
   <div class="section" id="using-objects-in-field">
 <h1>Using Objects In Field<a class="headerlink" href="#using-objects-in-field" title="Permalink to this headline"></a></h1>
-<p>The easiest way to get started is by using the Anaconda Python Distribution’s
-conda package manager:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">**</span><span class="p">[</span><span class="n">ASTEROID</span><span class="p">]</span><span class="o">**</span>
+<p>A basic configuration file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">ASTEROID</span><span class="p">]</span>
 <span class="n">Population</span> <span class="n">model</span>    <span class="o">=</span> <span class="n">asteroids</span><span class="o">.</span><span class="n">s3m</span>
 <span class="n">SPK</span> <span class="n">T0</span>              <span class="o">=</span> <span class="mi">59200</span>
 <span class="n">nDays</span>               <span class="o">=</span> <span class="mi">800</span>
@@ -88,18 +87,18 @@ conda package manager:</p>
 <span class="n">nbody</span>               <span class="o">=</span> <span class="n">T</span>
 <span class="n">Input</span> <span class="nb">format</span>       <span class="o">=</span> <span class="n">whitespace</span>
 
-<span class="o">**</span><span class="p">[</span><span class="n">SURVEY</span><span class="p">]</span><span class="o">**</span>
+<span class="p">[</span><span class="n">SURVEY</span><span class="p">]</span>
 <span class="n">Survey</span> <span class="n">database</span>     <span class="o">=</span> <span class="n">sample</span><span class="o">-</span><span class="n">lsst_baseline_v1p4_test</span><span class="o">.</span><span class="n">db</span>
 <span class="n">Field1</span>              <span class="o">=</span> <span class="mi">1</span>
 <span class="n">nFields</span>             <span class="o">=</span> <span class="mi">1000</span>
 <span class="n">Telescope</span>           <span class="o">=</span> <span class="n">I11</span>
 <span class="n">Surveydbquery</span>       <span class="o">=</span> <span class="n">SELECT</span> <span class="n">observationId</span><span class="p">,</span><span class="n">observationStartMJD</span><span class="p">,</span><span class="n">fieldRA</span><span class="p">,</span><span class="n">fieldDEC</span><span class="p">,</span><span class="n">rotSkyPos</span> <span class="n">FROM</span> <span class="n">SummaryAllProps</span> <span class="n">order</span> <span class="n">by</span> <span class="n">observationStartMJD</span>
 
-<span class="o">**</span><span class="p">[</span><span class="n">OUTPUT</span><span class="p">]</span><span class="o">**</span>
+<span class="p">[</span><span class="n">OUTPUT</span><span class="p">]</span>
 <span class="n">Output</span> <span class="n">file</span>          <span class="o">=</span> <span class="n">stdout</span>
 <span class="n">Output</span> <span class="nb">format</span>        <span class="o">=</span> <span class="n">csv</span>
 
-<span class="o">**</span><span class="p">[</span><span class="n">CAMERA</span><span class="p">]</span><span class="o">**</span>
+<span class="p">[</span><span class="n">CAMERA</span><span class="p">]</span>
 <span class="n">Camera</span>              <span class="o">=</span> <span class="n">instrument_polygon</span><span class="o">.</span><span class="n">dat</span>
 <span class="n">Threshold</span>           <span class="o">=</span> <span class="mi">5</span>
 </pre></div>

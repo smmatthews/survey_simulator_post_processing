@@ -2,11 +2,10 @@ Using Objects In Field
 ======================
 
 
-The easiest way to get started is by using the Anaconda Python Distribution's 
-conda package manager::
+A basic configuration file::
 
 
-   **[ASTEROID]**
+   [ASTEROID]
    Population model    = asteroids.s3m
    SPK T0              = 59200
    nDays               = 800
@@ -14,18 +13,18 @@ conda package manager::
    nbody               = T
    Input format       = whitespace
 
-   **[SURVEY]**
+   [SURVEY]
    Survey database     = sample-lsst_baseline_v1p4_test.db
    Field1              = 1
    nFields             = 1000
    Telescope           = I11
    Surveydbquery       = SELECT observationId,observationStartMJD,fieldRA,fieldDEC,rotSkyPos FROM SummaryAllProps order by observationStartMJD
 
-   **[OUTPUT]**
+   [OUTPUT]
    Output file          = stdout
    Output format        = csv
 
-   **[CAMERA]**
+   [CAMERA]
    Camera              = instrument_polygon.dat
    Threshold           = 5
 
