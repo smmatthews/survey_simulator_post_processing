@@ -20,7 +20,7 @@ Documentation: https://survey-simulator-post-processing.readthedocs.io/en/latest
 * If you are working on addressing a specific issue ticket, assign yourself the ticket and set the status to "in progress"
 * When making a pull request that closes an issue, cite the issue ticket in the pull request summary
 
-##Installation
+## Installation
 Set up a conda environment and activate:
 ```
 conda create -n survey_sim_pp python=3.8 pip
